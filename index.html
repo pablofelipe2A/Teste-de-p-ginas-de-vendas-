@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Store</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Tech Store</h1>
+    </header>
+
+    <!-- Conteúdo -->
+    <div class="container">
+        <div class="products">
+            <!-- Produtos -->
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Notebook Gamer">
+                <h2>Notebook Gamer</h2>
+                <p>Alto desempenho para jogos e trabalho.</p>
+                <div class="price">R$ 4.500,00</div>
+                <button onclick="comprar('Notebook Gamer')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Smartphone">
+                <h2>Smartphone</h2>
+                <p>Smartphone com câmera de alta resolução.</p>
+                <div class="price">R$ 2.500,00</div>
+                <button onclick="comprar('Smartphone')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Fone Bluetooth">
+                <h2>Fone Bluetooth</h2>
+                <p>Áudio de qualidade sem fios.</p>
+                <div class="price">R$ 300,00</div>
+                <button onclick="comprar('Fone Bluetooth')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Smartwatch">
+                <h2>Smartwatch</h2>
+                <p>Monitoramento de saúde e notificações.</p>
+                <div class="price">R$ 800,00</div>
+                <button onclick="comprar('Smartwatch')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Tablet">
+                <h2>Tablet</h2>
+                <p>Ideal para trabalho e entretenimento.</p>
+                <div class="price">R$ 1.500,00</div>
+                <button onclick="comprar('Tablet')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Teclado Mecânico">
+                <h2>Teclado Mecânico</h2>
+                <p>Para gamers e profissionais.</p>
+                <div class="price">R$ 350,00</div>
+                <button onclick="comprar('Teclado Mecânico')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Monitor 4K">
+                <h2>Monitor 4K</h2>
+                <p>Imagem ultra nítida para trabalho e lazer.</p>
+                <div class="price">R$ 2.200,00</div>
+                <button onclick="comprar('Monitor 4K')">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/280" alt="Headset Gamer">
+                <h2>Headset Gamer</h2>
+                <p>Som imersivo com microfone de qualidade.</p>
+                <div class="price">R$ 600,00</div>
+                <button onclick="comprar('Headset Gamer')">Comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function comprar(produto) {
+            alert(`Você escolheu comprar: ${produto}`);
+        }
+    </script>
+</body>
+</html>
