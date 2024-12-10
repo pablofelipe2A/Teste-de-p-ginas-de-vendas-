@@ -3,83 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Store</title>
-    <link rel="stylesheet" href="header.css">
+    <title>Minha Loja</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
 </head>
 <body>
-    <!-- Cabeçalho -->
     <header>
-        <h1>Tech Store</h1>
+        <div class="logo">Minha Loja</div>
+        <input type="text" id="searchBar" placeholder="Buscar produtos...">
     </header>
-
-    <!-- Conteúdo -->
-    <div class="container">
-        <div class="products">
+    <main>
+        <section class="product-list">
             <!-- Produtos -->
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Notebook Gamer">
-                <h2>Notebook Gamer</h2>
-                <p>Alto desempenho para jogos e trabalho.</p>
-                <div class="price">R$ 4.500,00</div>
-                <button onclick="comprar('Notebook Gamer')">Comprar</button>
+                <img src="produtos/produto1.jpg" alt="Produto 1">
+                <h3>Produto 1</h3>
+                <p>Descrição do Produto 1</p>
+                <p>R$ 50,00</p>
+                <button onclick="buyProduct('Produto 1', 50)">Comprar</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Smartphone">
-                <h2>Smartphone</h2>
-                <p>Smartphone com câmera de alta resolução.</p>
-                <div class="price">R$ 2.500,00</div>
-                <button onclick="comprar('Smartphone')">Comprar</button>
+                <img src="produtos/produto2.jpg" alt="Produto 2">
+                <h3>Produto 2</h3>
+                <p>Descrição do Produto 2</p>
+                <p>R$ 75,00</p>
+                <button onclick="buyProduct('Produto 2', 75)">Comprar</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Fone Bluetooth">
-                <h2>Fone Bluetooth</h2>
-                <p>Áudio de qualidade sem fios.</p>
-                <div class="price">R$ 300,00</div>
-                <button onclick="comprar('Fone Bluetooth')">Comprar</button>
+                <img src="produtos/produto3.jpg" alt="Produto 3">
+                <h3>Produto 3</h3>
+                <p>Descrição do Produto 3</p>
+                <p>R$ 120,00</p>
+                <button onclick="buyProduct('Produto 3', 120)">Comprar</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Smartwatch">
-                <h2>Smartwatch</h2>
-                <p>Monitoramento de saúde e notificações.</p>
-                <div class="price">R$ 800,00</div>
-                <button onclick="comprar('Smartwatch')">Comprar</button>
+                <img src="produtos/produto4.jpg" alt="Produto 4">
+                <h3>Produto 4</h3>
+                <p>Descrição do Produto 4</p>
+                <p>R$ 30,00</p>
+                <button onclick="buyProduct('Produto 4', 30)">Comprar</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Tablet">
-                <h2>Tablet</h2>
-                <p>Ideal para trabalho e entretenimento.</p>
-                <div class="price">R$ 1.500,00</div>
-                <button onclick="comprar('Tablet')">Comprar</button>
+                <img src="produtos/produto5.jpg" alt="Produto 5">
+                <h3>Produto 5</h3>
+                <p>Descrição do Produto 5</p>
+                <p>R$ 200,00</p>
+                <button onclick="buyProduct('Produto 5', 200)">Comprar</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Teclado Mecânico">
-                <h2>Teclado Mecânico</h2>
-                <p>Para gamers e profissionais.</p>
-                <div class="price">R$ 350,00</div>
-                <button onclick="comprar('Teclado Mecânico')">Comprar</button>
+                <img src="produtos/produto6.jpg" alt="Produto 6">
+                <h3>Produto 6</h3>
+                <p>Descrição do Produto 6</p>
+                <p>R$ 95,00</p>
+                <button onclick="buyProduct('Produto 6', 95)">Comprar</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Monitor 4K">
-                <h2>Monitor 4K</h2>
-                <p>Imagem ultra nítida para trabalho e lazer.</p>
-                <div class="price">R$ 2.200,00</div>
-                <button onclick="comprar('Monitor 4K')">Comprar</button>
+                <img src="produtos/produto7.jpg" alt="Produto 7">
+                <h3>Produto 7</h3>
+                <p>Descrição do Produto 7</p>
+                <p>R$ 85,00</p>
+                <button onclick="buyProduct('Produto 7', 85)">Comprar</button>
             </div>
             <div class="product">
-                <img src="https://via.placeholder.com/280" alt="Headset Gamer">
-                <h2>Headset Gamer</h2>
-                <p>Som imersivo com microfone de qualidade.</p>
-                <div class="price">R$ 600,00</div>
-                <button onclick="comprar('Headset Gamer')">Comprar</button>
+                <img src="produtos/produto8.jpg" alt="Produto 8">
+                <h3>Produto 8</h3>
+                <p>Descrição do Produto 8</p>
+                <p>R$ 150,00</p>
+                <button onclick="buyProduct('Produto 8', 150)">Comprar</button>
             </div>
-        </div>
-    </div>
-
-    <script>
-        function comprar(produto) {
-            alert(`Você escolheu comprar: ${produto}`);
-        }
-    </script>
+            <div class="product">
+                <img src="produtos/produto9.jpg" alt="Produto 9">
+                <h3>Produto 9</h3>
+                <p>Descrição do Produto 9</p>
+                <p>R$ 55,00</p>
+                <button onclick="buyProduct('Produto 9', 55)">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="produtos/produto10.jpg" alt="Produto 10">
+                <h3>Produto 10</h3>
+                <p>Descrição do Produto 10</p>
+                <p>R$ 40,00</p>
+                <button onclick="buyProduct('Produto 10', 40)">Comprar</button>
+            </div>
+            <!-- Adicione mais produtos -->
+            <div class="product">
+                <img src="produtos/produto11.jpg" alt="Produto 11">
+                <h3>Produto 11</h3>
+                <p>Descrição do Produto 11</p>
+                <p>R$ 60,00</p>
+                <button onclick="buyProduct('Produto 11', 60)">Comprar</button>
+            </div>
+            <div class="product">
+                <img src="produtos/produto12.jpg" alt="Produto 12">
+                <h3>Produto 12</h3>
+                <p>Descrição do Produto 12</p>
+                <p>R$ 110,00</p>
+                <button onclick="buyProduct('Produto 12', 110)">Comprar</button>
+            </div>
+            <!-- Repita até o produto 20 -->
+        </section>
+    </main>
+    <script src="javascript.js"></script>
 </body>
 </html>
