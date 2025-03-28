@@ -1,108 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Loja</title>
+    <title>Flappy Bird Clone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="header.css">
 </head>
 <body>
+
     <header>
-        <div class="logo">Minha Loja</div>
-        <input type="text" id="searchBar" placeholder="Buscar produtos...">
+        <h1>Flappy Bird Clone</h1>
+        <p>Pontuação: <span id="score">0</span></p>
     </header>
-    <main>
-        <section class="product-list">
-            <!-- Produtos -->
-            <div class="product">
-                <img src="produtos/produto1.jpg" alt="Produto 1">
-                <h3>Produto 1</h3>
-                <p>Descrição do Produto 1</p>
-                <p>R$ 50,00</p>
-                <button onclick="buyProduct('Produto 1', 50)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto2.jpg" alt="Produto 2">
-                <h3>Produto 2</h3>
-                <p>Descrição do Produto 2</p>
-                <p>R$ 75,00</p>
-                <button onclick="buyProduct('Produto 2', 75)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto3.jpg" alt="Produto 3">
-                <h3>Produto 3</h3>
-                <p>Descrição do Produto 3</p>
-                <p>R$ 120,00</p>
-                <button onclick="buyProduct('Produto 3', 120)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto4.jpg" alt="Produto 4">
-                <h3>Produto 4</h3>
-                <p>Descrição do Produto 4</p>
-                <p>R$ 30,00</p>
-                <button onclick="buyProduct('Produto 4', 30)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto5.jpg" alt="Produto 5">
-                <h3>Produto 5</h3>
-                <p>Descrição do Produto 5</p>
-                <p>R$ 200,00</p>
-                <button onclick="buyProduct('Produto 5', 200)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto6.jpg" alt="Produto 6">
-                <h3>Produto 6</h3>
-                <p>Descrição do Produto 6</p>
-                <p>R$ 95,00</p>
-                <button onclick="buyProduct('Produto 6', 95)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto7.jpg" alt="Produto 7">
-                <h3>Produto 7</h3>
-                <p>Descrição do Produto 7</p>
-                <p>R$ 85,00</p>
-                <button onclick="buyProduct('Produto 7', 85)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto8.jpg" alt="Produto 8">
-                <h3>Produto 8</h3>
-                <p>Descrição do Produto 8</p>
-                <p>R$ 150,00</p>
-                <button onclick="buyProduct('Produto 8', 150)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto9.jpg" alt="Produto 9">
-                <h3>Produto 9</h3>
-                <p>Descrição do Produto 9</p>
-                <p>R$ 55,00</p>
-                <button onclick="buyProduct('Produto 9', 55)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto10.jpg" alt="Produto 10">
-                <h3>Produto 10</h3>
-                <p>Descrição do Produto 10</p>
-                <p>R$ 40,00</p>
-                <button onclick="buyProduct('Produto 10', 40)">Comprar</button>
-            </div>
-            <!-- Adicione mais produtos -->
-            <div class="product">
-                <img src="produtos/produto11.jpg" alt="Produto 11">
-                <h3>Produto 11</h3>
-                <p>Descrição do Produto 11</p>
-                <p>R$ 60,00</p>
-                <button onclick="buyProduct('Produto 11', 60)">Comprar</button>
-            </div>
-            <div class="product">
-                <img src="produtos/produto12.jpg" alt="Produto 12">
-                <h3>Produto 12</h3>
-                <p>Descrição do Produto 12</p>
-                <p>R$ 110,00</p>
-                <button onclick="buyProduct('Produto 12', 110)">Comprar</button>
-            </div>
-            <!-- Repita até o produto 20 -->
-        </section>
-    </main>
-    <script src="javascript.js"></script>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+    </div>
+
+    <script src="flappy.js"></script>
 </body>
 </html>
