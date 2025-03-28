@@ -1,93 +1,115 @@
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById("pongCanvas");
+const context = canvas.getContext("2d");
 
-canvas.width = 400;
-canvas.height = 500;
+const paddleWidth = 10;
+const paddleHeight = 100;
+const ballRadius = 10;
 
-let bird = { x: 50, y: 250, width: 20, height: 20, velocity: 0, gravity: 0.6, lift: -10 };
-let pipes = [];
-let score = 0;
-let isGameOver = false;
+const player = {
+    x: 0,
+    y: canvas.height / 2 - paddleHeight / 2,
+    width: paddleWidth,
+    height: paddleHeight,
+    color: "#fff",
+    dy: 5
+};
 
-function createPipe() {
-    let pipeHeight = Math.floor(Math.random() * (canvas.height / 2)) + 50;
-    let gap = 100;
-    pipes.push({
-        x: canvas.width,
-        y: pipeHeight,
-        width: 40,
-        height: canvas.height - pipeHeight,
-        gap: gap
-    });
+const computer = {
+    x: canvas.width - paddleWidth,
+    y: canvas.height / 2 - paddleHeight / 2,
+    width: paddleWidth,
+    height: paddleHeight,
+    color: "#fff",
+    dy: 5
+};
+
+const ball = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    radius: ballRadius,
+    speed: 4,
+    dx: 4,
+    dy: 4,
+    color: "#fff"
+};
+
+function drawRect(x, y, width, height, color) {
+    context.fillStyle = color;
+    context.fillRect(x, y, width, height);
 }
 
-function update() {
-    if (isGameOver) return;
-
-    bird.velocity += bird.gravity;
-    bird.y += bird.velocity;
-
-    if (bird.y + bird.height >= canvas.height) {
-        gameOver();
-    }
-
-    pipes.forEach((pipe, index) => {
-        pipe.x -= 2;
-
-        if (pipe.x + pipe.width < 0) {
-            pipes.splice(index, 1);
-            score++;
-            document.getElementById("score").textContent = score;
-        }
-
-        if (
-            bird.x < pipe.x + pipe.width &&
-            bird.x + bird.width > pipe.x &&
-            (bird.y < pipe.y || bird.y + bird.height > pipe.y + pipe.gap)
-        ) {
-            gameOver();
-        }
-    });
-
-    if (pipes.length === 0 || pipes[pipes.length - 1].x < canvas.width - 200) {
-        createPipe();
-    }
+function drawCircle(x, y, radius, color) {
+    context.fillStyle = color;
+    context.beginPath();
+    context.arc(x, y, radius, 0, Math.PI * 2);
+    context.closePath();
+    context.fill();
 }
 
 function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "yellow";
-    ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
-
-    ctx.fillStyle = "green";
-    pipes.forEach(pipe => {
-        ctx.fillRect(pipe.x, 0, pipe.width, pipe.y);
-        ctx.fillRect(pipe.x, pipe.y + pipe.gap, pipe.width, canvas.height - pipe.y - pipe.gap);
-    });
+    drawRect(0, 0, canvas.width, canvas.height, "#000");
+    drawRect(player.x, player.y, player.width, player.height, player.color);
+    drawRect(computer.x, computer.y, computer.width, computer.height, computer.color);
+    drawCircle(ball.x, ball.y, ball.radius, ball.color);
 }
 
-function gameOver() {
-    isGameOver = true;
-    alert(`Game Over! Sua pontuação: ${score}`);
-    location.reload();
-}
+function update() {
+    ball.x += ball.dx;
+    ball.y += ball.dy;
 
-function jump() {
-    if (!isGameOver) {
-        bird.velocity = bird.lift;
+    if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+        ball.dy *= -1;
+    }
+
+    if (ball.x + ball.radius > canvas.width) {
+        ball.dx *= -1;
+        resetBall();
+    }
+
+    if (ball.x - ball.radius < 0) {
+        ball.dx *= -1;
+        resetBall();
+    }
+
+    if (ball.x - ball.radius < player.x + player.width && ball.y > player.y && ball.y < player.y + player.height) {
+        ball.dx *= -1;
+    }
+
+    if (ball.x + ball.radius > computer.x && ball.y > computer.y && ball.y < computer.y + computer.height) {
+        ball.dx *= -1;
+    }
+
+    if (ball.y > computer.y + computer.height / 2) {
+        computer.y += computer.dy;
+    } else {
+        computer.y -= computer.dy;
     }
 }
 
-document.addEventListener("keydown", (e) => {
-    if (e.code === "Space") jump();
-});
+function resetBall() {
+    ball.x = canvas.width / 2;
+    ball.y = canvas.height / 2;
+    ball.dx = -ball.dx;
+}
 
-document.addEventListener("click", jump);
+function movePlayer(event) {
+    const key = event.keyCode;
+
+    switch (key) {
+        case 38:
+            player.y -= player.dy;
+            break;
+        case 40:
+            player.y += player.dy;
+            break;
+    }
+}
+
+document.addEventListener("keydown", movePlayer);
 
 function gameLoop() {
-    update();
     draw();
+    update();
     requestAnimationFrame(gameLoop);
 }
 
